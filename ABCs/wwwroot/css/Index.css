@@ -1,0 +1,14 @@
+﻿
+@ {
+    ViewData ["Title"] = "Index";
+}
+
+
+.container {
+    position: absolute;
+    margin: 0 auto 0 auto;
+    width: 100%;
+    height: 100%;
+}
+
+
