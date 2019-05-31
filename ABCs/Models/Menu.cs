@@ -11,7 +11,5 @@ namespace ABCs.Models
         public char Letters { get; set; }
 
         public string BLOBName { get; set; }
-
-       
     }
 }

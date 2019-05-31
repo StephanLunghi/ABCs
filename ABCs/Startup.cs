@@ -52,6 +52,7 @@ namespace ABCs
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseBrowserLink();
 
             app.UseMvc(routes =>
             {
