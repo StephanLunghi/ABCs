@@ -6,43 +6,13 @@
     <h1 class="display-4">Welcome, let's learn!</h1>
 </div>
 
-
-@*<div class="col"
-<div class="text-center">
-    <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-        <p class="text-center">   Play </p>
-    </button>
-</div>
-
-<div>
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-    <p class="text-center">   Settings </p>
-</div>
-</button>
-<div>
-<button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-    <p class="text-center">   Quit </p>
-</div>
-</button>
- </div>*@
-
-
 <div class="container">
-
-
     <div class="col-1">
         <a class="btn btn-primary" asp-controller="Menu" asp-action="Index">
             Play
         </a>
-
-        
-
-        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-            <p class="text-center">   Settings </p>
-        </button>
-        <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-            <p class="text-center">   Quit </p>
-        </button>
+        <a class="btn btn-primary" asp-controller="Settings" asp-action="Index">
+            Settings
+        </a>
     </div>
-
 </div>

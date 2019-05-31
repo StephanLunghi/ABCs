@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ABCs.Controllers
 {
-    public class MainMenuController : Controller
+    public class SettingsController : Controller
     {
         public IActionResult Index()
         {
