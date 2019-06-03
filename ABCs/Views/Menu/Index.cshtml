@@ -1,4 +1,5 @@
-﻿@{
+﻿@model LetterQuiz
+@{
     ViewData["Title"] = "Index";
 }
 
@@ -13,22 +14,20 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            
+
         </div>
         <div class="col-6">
-            
+
         </div>
         <div class="col">
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                <img src="~/lib/images/A.jpg" alt="A" width="auto" height="200px" class ="img-fluid"/>
-            </button>
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                <img src="~/lib/images/O.jpg" alt="O" width="auto"  height="200px" class ="img-fluid"/>
-            </button>
-            <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                <img src="~/lib/images/I.jpg" alt="I" width="auto"  height="200px" class ="img-fluid"/>
-            </button>
+            The answer is @(Model.quizAnswer).
 
+            @foreach (var letter in Model.allLetters)
+            {
+                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
+                    <img src="~/lib/images/@(letter).jpg" alt="A" width="auto" height="200px" class="img-fluid"/>
+                </button>
+            }
         </div>
     </div>
 
