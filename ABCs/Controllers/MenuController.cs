@@ -16,13 +16,10 @@ namespace ABCs.Controllers
         public IActionResult Index()
         {
             // Eventually:  Enumerable.Range('A', 26).Select(c => (char) c);
-            var lettersWeKnow = new List<char>() {'A', 'C', 'F', 'H', 'I', 'O'};
 
             // Make this a random list with one known letter and 2 (?) unknown letters
-            var answer = lettersWeKnow.Last();
-            var lettersWePicked = lettersWeKnow.Take(2).Append(answer);
 
-            return View(new LetterQuiz() { allLetters = lettersWePicked, quizAnswer = answer});
+            return View(new LetterQuiz());
         }
 
         // 

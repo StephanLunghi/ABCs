@@ -9,10 +9,10 @@ namespace ABCs.Models
 {
     public class Menu
     {
-        public Menu()
-        {
-            List<char> alphabet = new List<char>{'A', 'C', 'F', 'H', 'I', 'O' };
-        }
+        //public Menu()
+        //{
+        //    List<char> alphabet = new List<char>{'A', 'C', 'F', 'H', 'I', 'O' };
+        //}
 
         public string BLOBName { get; set; }
     }
