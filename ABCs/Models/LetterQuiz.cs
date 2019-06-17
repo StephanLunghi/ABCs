@@ -5,19 +5,22 @@ using System.Threading.Tasks;
 
 namespace ABCs.Models
 {
+
+
+
     public class LetterQuiz
     {
-        private readonly int numberOfLetters = 3;
+        private readonly int numberOfLetters = 2;
         private readonly Random rng;
         private readonly Random shuffler;
 
-        public List<char> KnownLetters {get; private set;}
-        public IEnumerable<char> AllLetters {get; private set;}
+        public List<char> Alphabet {get; private set;}
+        public List<char> AllLetters {get; private set;}
         public char Answer {get; private set;}
 
         public LetterQuiz()
         {
-            KnownLetters = new List<char>() {'A', 'C', 'F', 'H', 'I', 'O'};
+            Alphabet = new List<char>() {'A', 'C', 'F', 'H', 'I', 'O'};
             rng = new Random();
             shuffler = new Random();
 
@@ -27,27 +30,33 @@ namespace ABCs.Models
 
         private char RandomAnswer()
         {
-            var max = KnownLetters.Count() - 1;
+            var max = Alphabet.Count() - 1;
 
-            return KnownLetters[rng.Next(0, max)];
+            return Alphabet[rng.Next(0, max)];
         }
 
-        private IEnumerable<char> RandomLetters(char answer)
+
+        // Removing the answer so that the generated pictures won't be duplicates.
+        private List<char> RandomLetters(char answer)
         {
-            var max = KnownLetters.Count() - 1;
-            var result = new IEnumerable<char>(){ answer };
+            Alphabet.Remove(answer);
+            var result = new List<char> {answer};
 
             for (int i = 0; i < numberOfLetters; i++)
             {
-                result.Append(KnownLetters[rng.Next(0, max)]);
+                var index = rng.Next(0, Alphabet.Count - 1);
+                var letter = Alphabet[index];
+                Alphabet.RemoveAt(index);
+                result.Add(letter);
             }
 
-            return result.Shuffle();
+            return Shuffle(result);
         }
 
-        private IEnumberable<T> Shuffle<T>(this IEnumerable<T> list)  
-        {  
-            int n = list.Count;  
+        private List<T> Shuffle<T>(List<T> list)
+        {
+            int n = list.Count();
+            
             while (n > 1) 
             {  
                 n--;  
