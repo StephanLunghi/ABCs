@@ -5,25 +5,44 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.Encodings.Web;
 using ABCs.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace ABCs.Controllers
 {
     public class MenuController : Controller
     {
-        // 
-        // GET: /HelloWorld/
+        private LetterQuiz _currentQuiz;
 
         public IActionResult Index()
         {
-            // Eventually:  Enumerable.Range('A', 26).Select(c => (char) c);
-
-            // Make this a random list with one known letter and 2 (?) unknown letters
-
-            return View(new LetterQuiz());
+            
+            _currentQuiz = new LetterQuiz();
+            return View(_currentQuiz);
         }
 
-        // 
-        // GET: /HelloWorld/Welcome/ 
+        //public IActionResult Quiz(char id)
+        //{
+            //if (id == _currentQuiz.Answer)
+            //{
+            //    return View("Correct");
+
+            //}
+        //        return View("Wrong");
+        //}
+
+        [HttpPost]
+        public IActionResult Quiz(string answer, string option)
+        {
+            if (answer == option)
+            {
+
+                return PartialView("Correct");
+            }
+
+
+            return PartialView("Wrong");
+        }
+
 
         public string Welcome(string name, int ID = 1)
         {

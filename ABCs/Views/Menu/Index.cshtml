@@ -14,22 +14,29 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            @(Model.Answer)
+
+            <p style="font-size: 150px">@(Model.Answer)</p>
         </div>
         <div class="col-6">
 
         </div>
         <div class="col">
             
-
+           
             @foreach (var letter in Model.AllLetters)
-            {
-                <button type="button" class="btn btn-primary" data-toggle="button" aria-pressed="false" autocomplete="off">
-                    <img src="~/lib/images/@(letter).jpg" alt="A" width="auto" height="200px" class="img-fluid"/>
-                </button>
+            {   
+
+                <a class="btn btn-primary" onclick="$.post('/Menu/Quiz/', {answer: '@Model.Answer', option: '@letter'}, function (data) {
+                     $('#response').html(data);})">
+                    <img src="~/lib/images/@(letter).jpg" width="200" height="200" class="img-fluid"/>
+                </a>
             }
+
         </div>
     </div>
+    
+<div id="response"></div>
+
 
 </div>
 

@@ -17,6 +17,7 @@ namespace ABCs.Models
         public List<char> Alphabet {get; private set;}
         public List<char> AllLetters {get; private set;}
         public char Answer {get; private set;}
+        public int AnswerIndex => AllLetters.FindIndex(x => x == Answer);
 
         public LetterQuiz()
         {
